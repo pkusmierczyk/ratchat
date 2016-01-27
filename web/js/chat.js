@@ -1,13 +1,21 @@
 $(document).ready(function() {
-    $('#myModal').on('hidden.bs.modal', function () {
-        fadeInWelcome();
-    });
 
-    $('#myModal').modal('show');
+    handleHiddenModal();
+    showMyModal();
     var connection = sockets();
     handleModal();
     handleMessaging(connection);
 });
+
+function handleHiddenModal() {
+    $('#myModal').on('hidden.bs.modal', function () {
+        fadeInWelcome();
+    });
+}
+
+function showMyModal() {
+    $('#myModal').modal('show');
+}
 
 function setUserName() {
     var username = $('#nickname').val() || undefined;
@@ -31,13 +39,7 @@ function handleMessaging(conn) {
         }
 
     });
-
-    $('#messageForm').on('keypress', function(e) {
-        if(e.keyCode === 13) {
-            e.preventDefault();
-            $('#send').trigger('click');
-        }
-    });
+    escapeEnter('#messageForm', '#send');
 }
 
 function handleModal() {
@@ -45,11 +47,14 @@ function handleModal() {
         $('#myModal').modal('hide');
         setUserName();
     });
+    escapeEnter('#myModal', '#mySubmitForm')
+}
 
+function escapeEnter(selector, triggerSelector) {
     $('#myModal').on('keypress', function(e) {
         if(e.keyCode === 13) {
             e.preventDefault();
-            $('#mySubmitForm').trigger('click');
+            $(triggerSelector).trigger('click');
         }
     });
 }
