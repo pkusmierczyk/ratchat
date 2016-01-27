@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RatChat App</title>
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="web/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="web/js/chat.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>RatChatApp</h1>
+    <p>Hello, this is RatChat App.</p>
+
+    <div id="myScrollArea" class="container col-md-8 myScrollArea">
+        <p class="fade" id="welcome">Hello <span id="username">guest</span>!</p>
+    </div>
+</div>
+
+<div id="messagePanel" class="container">
+    <form role="formmsg" id="messageForm" class="form-inline">
+        <div class="form-group col-xs-6 col-md-6">
+            <input type="message" class="form-control" id="message">
+        </div>
+        <div class="form-group col-xs-1 col-md-1">
+            <button type="submit" class="btn btn-default" id="send">Send</button>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Set your nickname</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="nickname">Your nickname:</label>
+                        <input type="nickname" class="form-control" id="nickname">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="mySubmitForm" data-dismiss="modal" class="btn btn-primary">OK</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+</html>
